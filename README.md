@@ -5,6 +5,10 @@ it's a revolutionary platform that redefines the essence of real-time communicat
 
 ## Screenshots
 
+### Splash Screen
+
+![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/d85ba252-0ad2-4416-be2d-5000495b0db2)
+
 ### Login Page
 
 ![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/7e52d7f1-2f32-422d-a91b-b121fe99a32d)
