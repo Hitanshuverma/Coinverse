@@ -3,6 +3,8 @@
 Coinverse is not just another chat application; 
 it's a revolutionary platform that redefines the essence of real-time communication. Seamlessly blending cutting-edge technology with user-friendly design, Coinverse offers an unparalleled chat experience. With its intuitive interface, users can engage in fluid conversations, sharing messages, images, and even emojis in real time. What sets Coinverse apart is its attention to the nuances of communication—features like read receipts, Last active status, and editing sent messages ensuring that users feel connected and understood. Beyond the basics, Coinverse prioritizes privacy and security, employing the security of firebase storage to safeguard user conversations. 
 
+## View Demo Video -> https://github.com/Hitanshuverma/Coinverse/assets/81898669/6920d13f-ea6c-4828-9abe-473e25e36aad
+
 ## Screenshots
 
 ### Splash Screen
@@ -48,7 +50,6 @@ it's a revolutionary platform that redefines the essence of real-time communicat
 ### Reciever's Profile Picture
 
 ![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/6d1751cb-2a43-4df6-9d78-b3bf4dcdc191)
-
 
 
 
