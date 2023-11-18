@@ -33,6 +33,19 @@ it's a revolutionary platform that redefines the essence of real-time communicat
 
 ![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/19283eb1-49be-426e-80d4-4f79c6baac87)
 
+### Edit Sender's Message Menu(with option to edit and delete previously sent messages)
+
+![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/c0408046-9780-4e67-80c8-dd352dde4b2e)
+
+### Reciever's messaage details(with sent time and recieved times)
+
+![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/01819e5e-0e28-4d6c-85db-587308ad164d)
+
+### Reciever's Profile Picture
+
+![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/6d1751cb-2a43-4df6-9d78-b3bf4dcdc191)
+
+
 
 
 
