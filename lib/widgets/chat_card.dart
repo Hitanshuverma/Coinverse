@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../api/api.dart';
+import '../const/constants.dart';
 import '../main.dart';
 import '../models/chat_user.dart';
 import '../models/message.dart';
@@ -28,7 +29,7 @@ class _ChatUserCardState extends State<ChatUserCard> {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: mq.width * .04, vertical: 4),
-      // color: Colors.blue.shade100,
+      color: AppColor.appPrimaryColor,
       elevation: 0.5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: InkWell(
@@ -68,7 +69,7 @@ class _ChatUserCardState extends State<ChatUserCard> {
                 ),
 
                 //user name
-                title: Text(widget.user.name),
+                title: Text(widget.user.name,style: const TextStyle(color: Colors.white, fontFamily: 'Montserrat', fontWeight: FontWeight.bold),),
 
                 //last message
                 subtitle: Text(
@@ -77,7 +78,7 @@ class _ChatUserCardState extends State<ChatUserCard> {
                         ? 'image'
                         : _message!.msg
                         : widget.user.about,
-                    maxLines: 1),
+                    maxLines: 1,style: TextStyle(color: Colors.white54, fontFamily: 'Montserrat'),),
 
                 //last message time
                 trailing: _message == null
@@ -98,7 +99,7 @@ class _ChatUserCardState extends State<ChatUserCard> {
                 Text(
                   MyDateUtil.getLastMessageTime(
                       context: context, time: _message!.sent),
-                  style: const TextStyle(color: Colors.black54),
+              style: const TextStyle(color: Colors.white, fontFamily: 'Montserrat', fontWeight: FontWeight.w600),
                 ),
               );
             },

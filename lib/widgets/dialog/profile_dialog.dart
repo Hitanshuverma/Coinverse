@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:coinverse/const/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class ProfileDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: EdgeInsets.zero,
-      backgroundColor: Colors.white.withOpacity(0.9),
+      backgroundColor: AppColor.appPrimaryColor.withOpacity(0.8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       content: SizedBox(
           width: mq.width * .6,
@@ -24,17 +25,22 @@ class ProfileDialog extends StatelessWidget {
             children: [
               // here for stories
               //user profile picture
-              Positioned(
-                top: mq.height * .075,
-                left: mq.width * .1,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(mq.height * .25),
-                  child: CachedNetworkImage(
-                    width: mq.width * .5,
-                    fit: BoxFit.cover,
-                    imageUrl: user.image,
-                    errorWidget: (context, url, error) =>
-                        const CircleAvatar(child: Icon(CupertinoIcons.person)),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(top: mq.height * 0.04),
+                  child: Center(
+                    child: ClipRRect(
+
+                      borderRadius: BorderRadius.circular(mq.height * .25),
+                      child: CachedNetworkImage(
+                        width: mq.width * .5,
+                        height: mq.width * .52,
+                        fit: BoxFit.cover,
+                        imageUrl: user.image,
+                        errorWidget: (context, url, error) =>
+                            const CircleAvatar(child: Icon(CupertinoIcons.person)),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -46,6 +52,7 @@ class ProfileDialog extends StatelessWidget {
                 width: mq.width * .55,
                 child: Text(user.name,
                     style: const TextStyle(
+                      color: Colors.white60,
                         fontSize: 18, fontWeight: FontWeight.w500)),
               ),
 
@@ -67,8 +74,8 @@ class ProfileDialog extends StatelessWidget {
                     minWidth: 0,
                     padding: const EdgeInsets.all(0),
                     shape: const CircleBorder(),
-                    child: const Icon(Icons.info_outline,
-                        color: Colors.blue, size: 30),
+                    child: Icon(Icons.info_outline,
+                        color: AppColor.appSecondaryColor, size: 30),
                   ))
             ],
           )),

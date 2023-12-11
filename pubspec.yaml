@@ -48,6 +48,7 @@ dependencies:
   gallery_saver: ^2.3.2
   http: ^0.13.6
   flutter_notification_channel: ^2.0.0
+  upi_india: ^3.0.1
 
 dev_dependencies:
   flutter_test:

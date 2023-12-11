@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coinverse/const/constants.dart';
 import 'package:coinverse/screens/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -77,9 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
             title: _isSearching
                 ? TextField(
                     decoration: const InputDecoration(
-                        border: InputBorder.none, hintText: 'Name, Email, ...'),
+                        border: InputBorder.none, hintText: 'Name, Email, ...',hintStyle: const TextStyle(fontSize: 17, letterSpacing: 0.5,color: Colors.white, fontFamily: 'Montserrat'),),
                     autofocus: true,
-                    style: const TextStyle(fontSize: 17, letterSpacing: 0.5),
+                    style: const TextStyle(fontSize: 17, letterSpacing: 0.5,color: Colors.white, fontFamily: 'Montserrat'),
                     //when search text changes then updated search list
                     onChanged: (val) {
                       //search logic
@@ -127,7 +128,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(
                           builder: (_) => ProfileScreen(user: APIs.me)));
                 },
-                icon: Image.asset('assets/images/google.png'),
+                icon: ClipRRect(
+                  borderRadius: BorderRadius.circular(mq.height * .03),
+                  child: CachedNetworkImage(
+                    width: mq.height * .040,
+                    height: mq.height * .040,
+                    imageUrl: APIs.me.image,
+                    errorWidget: (context, url, error) => const CircleAvatar(
+                        child: Icon(CupertinoIcons.person)),
+                  ),
+                ),
               )
             ],
           ),
@@ -136,6 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
           floatingActionButton: Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: FloatingActionButton(
+              backgroundColor: AppColor.appSecondaryColor,
                 onPressed: () {
                   _addChatUserDialog();
                 },
@@ -165,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color(0xff292F3F),
+                    color: AppColor.appPrimaryColor2,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
                       topRight: Radius.circular(40),
@@ -230,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     //no chats
                                     return const Center(
                                       child: Text('No Connections Found!',
-                                          style: TextStyle(fontSize: 20)),
+                                          style: TextStyle(fontSize: 20, letterSpacing: 0.5,color: Colors.white, fontFamily: 'Montserrat'),),
                                     );
                                   }
                               }
@@ -255,6 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
+              backgroundColor: AppColor.appPrimaryColor,
               contentPadding: const EdgeInsets.only(
                   left: 24, right: 24, top: 20, bottom: 10),
 
@@ -263,23 +275,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
               //title
               title: Row(
-                children: const [
+                children: [
                   Icon(
                     Icons.person_add,
-                    color: Colors.blue,
+                    color: AppColor.appSecondaryColor,
                     size: 28,
                   ),
-                  Text('  Add User')
+                  const Text('  Add User', style: TextStyle(letterSpacing: 0.5,color: Colors.white, fontFamily: 'Quicksand'),),
                 ],
               ),
 
               //content
               content: TextFormField(
+                style: const TextStyle(letterSpacing: 0.5,color: Colors.white, fontFamily: 'Montserrat'),
                 maxLines: null,
                 onChanged: (value) => email = value,
                 decoration: InputDecoration(
                     hintText: 'Email Id',
-                    prefixIcon: const Icon(Icons.email, color: Colors.blue),
+                    hintStyle: const TextStyle(letterSpacing: 0.5,color: Colors.white, fontFamily: 'Montserrat'),
+                    prefixIcon: Icon(Icons.email, color: AppColor.appSecondaryColor),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15))),
               ),
@@ -293,7 +307,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.pop(context);
                     },
                     child: const Text('Cancel',
-                        style: TextStyle(color: Colors.blue, fontSize: 16))),
+                        style: TextStyle(fontSize: 16, letterSpacing: 0.5,color: Colors.white, fontFamily: 'Quicksand'),)),
 
                 //add button
                 MaterialButton(
@@ -311,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: const Text(
                       'Add',
-                      style: TextStyle(color: Colors.blue, fontSize: 16),
+                      style: const TextStyle(fontSize: 16, letterSpacing: 0.5,color: Colors.white, fontFamily: 'Quicksand'),
                     ))
               ],
             ));

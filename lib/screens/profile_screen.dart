@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:coinverse/const/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,40 +37,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
       // for hiding keyboard
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: AppColor.appPrimaryColor2,
           //app bar
-          appBar: AppBar(title: const Text('Profile Screen')),
+          appBar: AppBar(title: const Text('Profile Screen',style: TextStyle(color: Colors.white60),), backgroundColor: AppColor.appPrimaryColor2,),
 
           //floating button to log out
-          floatingActionButton: Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: FloatingActionButton.extended(
-                backgroundColor: Colors.redAccent,
-                onPressed: () async {
-                  //for showing progress dialog
-                  Dialogs.showProgressBar(context);
-                  await APIs.updateActiveStatus(false);
-
-                  //sign out from app
-                  await APIs.auth.signOut().then((value) async {
-                    await GoogleSignIn().signOut().then((value) {
-                      //for hiding progress dialog
-                      Navigator.pop(context);
-
-                      //for moving to home screen
-                      Navigator.pop(context);
-
-                      APIs.auth = FirebaseAuth.instance;
-
-                      //replacing home screen with login screen
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const LoginScreen()));
+          floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                    minimumSize: Size(mq.width * .5, mq.height * .06)),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    APIs.updateUserInfo().then((value) {
+                      Dialogs.showSnackbar(
+                          context, 'Profile Updated Successfully!');
                     });
-                  });
+                  }
                 },
-                icon: const Icon(Icons.logout),
-                label: const Text('Logout')),
+                icon: const Icon(Icons.edit, size: 28),
+                label:
+                const Text('UPDATE', style: TextStyle(fontSize: 16)),
+              ),
+              // for adding some space
+              SizedBox(height: mq.height * .03),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10,right: 10),
+                child: FloatingActionButton.extended(
+                    backgroundColor: Colors.redAccent,
+                    heroTag: Null,
+                    onPressed: () async {
+                      //for showing progress dialog
+                      Dialogs.showProgressBar(context);
+                      await APIs.updateActiveStatus(false);
+
+                      //sign out from app
+                      await APIs.auth.signOut().then((value) async {
+                        await GoogleSignIn().signOut().then((value) {
+                          //for hiding progress dialog
+                          Navigator.pop(context);
+
+                          //for moving to home screen
+                          Navigator.pop(context);
+
+                          APIs.auth = FirebaseAuth.instance;
+
+                          //replacing home screen with login screen
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const LoginScreen()));
+                        });
+                      });
+                    },
+                    icon: const Icon(Icons.logout),
+                    label: const Text('Logout')),
+              ),
+            ],
           ),
 
           //body
@@ -110,8 +138,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   fit: BoxFit.cover,
                                   imageUrl: widget.user.image,
                                   errorWidget: (context, url, error) =>
-                                      const CircleAvatar(
-                                          child: Icon(CupertinoIcons.person)),
+                                      CircleAvatar(
+                                          child: Icon(CupertinoIcons.person,color: AppColor.appSecondaryColor,)),
                                 ),
                               ),
 
@@ -126,7 +154,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             },
                             shape: const CircleBorder(),
                             color: Colors.white,
-                            child: const Icon(Icons.edit, color: Colors.blue),
+                            child: Icon(Icons.edit, color: AppColor.appSecondaryColor),
                           ),
                         )
                       ],
@@ -139,7 +167,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text(
                       widget.user.email,
                       style:
-                          const TextStyle(color: Colors.black54, fontSize: 16),
+                          const TextStyle(color: Colors.white60, fontSize: 16),
                     ),
 
                     // for adding some space
@@ -148,13 +176,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     // name input field
                     TextFormField(
                       initialValue: widget.user.name,
+                      style: const TextStyle(color: Colors.white60),
                       onSaved: (val) => APIs.me.name = val ?? '',
                       validator: (val) => val != null && val.isNotEmpty
                           ? null
                           : 'Required Field',
                       decoration: InputDecoration(
+
                           prefixIcon:
-                              const Icon(Icons.person, color: Colors.blue),
+                              Icon(Icons.person, color: AppColor.appSecondaryColor),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12)),
                           hintText: 'Enter a Nickname',
@@ -167,13 +197,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     // about input field
                     TextFormField(
                       initialValue: widget.user.about,
+                      style: const TextStyle(color: Colors.white60),
                       onSaved: (val) => APIs.me.about = val ?? '',
                       validator: (val) => val != null && val.isNotEmpty
                           ? null
                           : 'Required Field',
                       decoration: InputDecoration(
-                          prefixIcon: const Icon(Icons.info_outline,
-                              color: Colors.blue),
+                          prefixIcon:  Icon(Icons.info_outline,
+                              color: AppColor.appSecondaryColor),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12)),
                           hintText: 'eg. I want a husky',
@@ -181,26 +212,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
 
                     // for adding some space
-                    SizedBox(height: mq.height * .05),
+                    SizedBox(height: mq.height * .02),
+
+                    // UPI input field
+                    TextFormField(
+                      initialValue: widget.user.name,
+                      style: const TextStyle(color: Colors.white60),
+                      onSaved: (val) => APIs.me.name = val ?? '',
+                      validator: (val) => val != null && val.isNotEmpty
+                          ? null
+                          : 'Required Field',
+                      decoration: InputDecoration(
+                          prefixIcon:
+                          Icon(Icons.currency_rupee, color: AppColor.appSecondaryColor),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          hintText: 'Enter a Nickname',
+                          label: const Text('Alias')),
+                    ),
+
 
                     // update profile button
-                    ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                          shape: const StadiumBorder(),
-                          minimumSize: Size(mq.width * .5, mq.height * .06)),
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          APIs.updateUserInfo().then((value) {
-                            Dialogs.showSnackbar(
-                                context, 'Profile Updated Successfully!');
-                          });
-                        }
-                      },
-                      icon: const Icon(Icons.edit, size: 28),
-                      label:
-                          const Text('UPDATE', style: TextStyle(fontSize: 16)),
-                    )
+
                   ],
                 ),
               ),
