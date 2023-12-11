@@ -25,7 +25,8 @@ it's a revolutionary platform that redefines the essence of real-time communicat
 
 ### User Profile Screen(with option to update profile picture, profile status, profile name and logout button)
 
-![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/8d02ee48-a7cd-459e-934d-73b2d49d30b5)
+![profile](https://github.com/Hitanshuverma/Coinverse/assets/81898669/05b076f2-e460-413c-894e-0e6907606c35)
+
 
 ### Search Menu(either by name or email)
 
@@ -33,24 +34,23 @@ it's a revolutionary platform that redefines the essence of real-time communicat
 
 ### Chat Screen
 
-![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/0c0fb353-0789-4d91-9f0e-1b256165978d)
+![chatscreen](https://github.com/Hitanshuverma/Coinverse/assets/81898669/343c5ae0-3427-4eba-9eba-e2125051b335)
 
 ### View Reciever's Profile
-
-![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/19283eb1-49be-426e-80d4-4f79c6baac87)
+![reciverprofile](https://github.com/Hitanshuverma/Coinverse/assets/81898669/506e280d-24dc-449c-a5ad-190c6b0d0742)
 
 ### Edit Sender's Message Menu(with option to edit and delete previously sent messages)
-
-![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/c0408046-9780-4e67-80c8-dd352dde4b2e)
+![sendereditmessage](https://github.com/Hitanshuverma/Coinverse/assets/81898669/29d312b3-4e09-48e9-a3e9-5c294a4a761a)
 
 ### Reciever's messaage details(with sent time and recieved times)
+![recivereditmessage](https://github.com/Hitanshuverma/Coinverse/assets/81898669/052d0550-e0cd-4cde-b40c-189573041480)
 
-![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/01819e5e-0e28-4d6c-85db-587308ad164d)
 
 ### Reciever's Profile Picture
 
-![image](https://github.com/Hitanshuverma/Coinverse/assets/81898669/6d1751cb-2a43-4df6-9d78-b3bf4dcdc191)
 
+
+![profilepic](https://github.com/Hitanshuverma/Coinverse/assets/81898669/20d24a28-f2f7-4ca3-8228-cbf136e7e177)
 
 
 
