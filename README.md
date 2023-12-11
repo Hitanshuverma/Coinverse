@@ -36,6 +36,15 @@ it's a revolutionary platform that redefines the essence of real-time communicat
 
 ![chatscreen](https://github.com/Hitanshuverma/Coinverse/assets/81898669/343c5ae0-3427-4eba-9eba-e2125051b335)
 
+### Payments
+## Enter the amount
+
+![payamt](https://github.com/Hitanshuverma/Coinverse/assets/81898669/0b405109-c8dd-4f23-80d3-ed1b327d580a)
+
+## Select the UPI service(all the available UPI services are fetched from the apps installed on the device in my case I had Gpay and Paytm only)
+
+![selectservice](https://github.com/Hitanshuverma/Coinverse/assets/81898669/1d7485f4-56ec-4064-ae36-c7b4958b2016)
+
 ### View Reciever's Profile
 ![reciverprofile](https://github.com/Hitanshuverma/Coinverse/assets/81898669/506e280d-24dc-449c-a5ad-190c6b0d0742)
 
